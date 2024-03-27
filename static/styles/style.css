@@ -1,0 +1,271 @@
+div.container {
+	background: none;
+	height: auto;
+	width: auto;
+	color:white;
+}
+div.container-fluid{
+	height: 100px;
+	width: auto;
+	background: none;
+	color:white;
+}
+
+div.col-lg-6{
+	height: 100px;
+	color:white;
+}
+
+.search-input {
+    height: 41px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+#profile{
+	float: right;
+    position: absolute;
+    right: 0%;
+    top: 22px;
+}
+#authorisationIN{
+	float: right;
+    position: absolute;
+    right: 0%;
+    top: 22px;
+}
+#logout{
+	float: right;
+    position: absolute;
+    right: 8%;
+    top: 22px;
+}
+#authorisationUP{
+    float: right;
+	position: absolute;
+    right: 8%;
+    top: 22px;
+}
+html{
+	padding: 0 15px;
+	width: 100%;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+	width: 100%;
+}
+
+#review {
+	display:flex;
+	border: 0.05px;
+	margin-left: 7%;
+	margin-right: 7%;
+	justify-content: center;
+	align-items: stretch;
+	flex-direction: column;
+    background-color: #fff5e1; /* светло-кремовый цвет фона */
+    color: #333; /* темный цвет текста */
+    padding: 30px;
+    border-radius: 10px; /* закругленные края */
+    box-shadow: 5px 5px 15px #888888; /* тень для создания объемности */
+    background: linear-gradient(145deg, #f7ebd3, #fff5e1);
+
+}
+#alert {
+    width: 100%;
+}
+.breadcrumb {
+    color: gray;
+    padding-left: 15px;
+    float: left;
+
+}
+header.header-border {
+    border: none;
+    text-align: center;
+    font-size: 18px;
+}
+div.container-fluid {
+	background: none;
+
+}
+div.col-md-6 {
+	background: none;
+
+}
+img.d-block {
+	height: 360px;
+	width: 670px;
+	}
+
+div.carousel-inner {
+	max-width: 1000px;
+	max-height: 800px;
+	object-fit: cover;
+
+}
+#myCarousel {
+	width: 100%
+}
+.card-title {
+	display: flex;
+	justify-content: center;
+}
+.icon-rouble::before {
+	font-family: rouble;
+}
+
+#cardcontainer {
+	padding: 20px;
+}
+div.copyright {
+	margin-top: 6%;
+}
+span.yoho {
+	text-align:center;
+}
+#form1 {
+    width: 30%;
+	justify-content: center;
+	flex-direction: column;
+}
+#regHead {
+    align: center;
+}
+img.logo {
+    height: 50px;
+	margin: 0 15px;
+}
+li.nav-item {
+    white-space: nowrap;
+}
+nav {
+
+    margin-left: 15px;
+}
+main {
+    box-sizing: border-box; /* Учитываем padding в общей ширине элемента */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.base-footer {
+	width: 100%;
+}
+div.upper-body {
+	max-width: 1600px;
+}
+
+
+#answers {
+    font-size: 20px;
+    margin-left: 220px;
+}
+
+div.poll {
+    align-items: center;
+    height: auto;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 50px 0 50px 0   ;
+}
+
+#questionContainer, #resultContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    margin-top: 10px;
+    width: 600px;
+    max-height: 600px;
+    position: relative;
+
+}
+
+#returnHomeButton{
+    margin-top: 10px;
+	padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#nextButton, #backButton {
+    position: absolute;
+    bottom: 10px;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+
+.buttonContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 70px;
+}
+
+.buttonContainer button {
+    margin: 0 10px;
+}
+
+#startText {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 30px;
+}
+
+#startTestButton {
+    margin-top: 10px;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 8px;
+     border: none;
+}
+.rightpos {
+    display: flex;
+    flex-direction: row;
+    margin-right: 0;
+    font-size: 18px;
+}
+.leftpos {
+    display: flex;
+    flex-direction: row;
+    margin-left: 0;
+    font-size: 18px;
+}
+#navbarNav{
+    width: 100%;
+}
+ul {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.rightpos > *{
+    margin-left: 15px;
+}
+a.btn {
+    font-size: 18px;
+}
