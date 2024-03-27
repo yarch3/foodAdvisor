@@ -1,0 +1,154 @@
+{% extends "base.html" %}
+{% block content %}
+<main>
+    <div class="poll">
+        <div id="startText">
+            <p style="color: white">Проверьте свои знания о еде в нашем опросе!</p>
+        </div>
+        <button type="button" class="btn btn-secondary" id="startTestButton">
+            Начали!
+        </button>
+
+        <div id="questionContainer" style="display: none;">
+            <h3 id="question"></h3>
+            <div id="answers" style="text-align: left;"></div>
+            <div class="buttonContainer">
+                <button class="btn btn-secondary" id="nextButton">Следующий вопрос</button>
+            </div>
+        </div>
+
+        <div id="resultContainer" style="display: none;">
+            <h3 id="resultText"></h3>
+        </div>
+
+    </div>
+
+</main>
+
+<script>
+
+//     const questions = [
+//     {
+//         "question": "Какое из блюд является национальным блюдом Италии?",
+//         "answers": ["Суши", "Паста", "Гуляш", "Паэлья", "Кимчи"],
+//         "answer": "Паста"
+//     },
+//     {
+//          "question": "Какой ингредиент обязательно должен быть в классическом бургере?",
+//         "answers": ["Грибы", "Ананас", "Сыр", "Креветки", "Авокадо"],
+//         "answer": "Сыр"
+//     },
+//     {
+//         "question": "Где был придуман эскимо - вкусное мороженое на палочке?",
+//         "answers": ["Франция", "Италия", "Россия", "Япония", "США"],
+//         "answer": "США"
+//     },
+//     {
+//         "question": "Какое блюдо характерно для испанской кухни?",
+//         "answers": ["Суши", "Карри", "Пельмени", "Тапас", "Стейк"],
+//         "answer": "Тапас"
+//     },
+//     {
+//         "question": "Какое из этих блюд не является десертом?",
+//         "answers": ["Тирамису", "Баба гануш", "Чизкейк", "Макаруны", "Панакота"],
+//         "answer": "Баба гануш"
+//     }
+// ];
+
+window.score;
+$.ajax({
+            url: '/json',
+            type: 'POST',
+            //data: ,
+            dataType: "json",
+
+            success: function(data){
+                console.log(data);
+                var questions = data;
+                let currentQuestion = 0;
+            let userAnswers = [];
+
+            const startText = document.getElementById('startText');
+            const startTestButton = document.getElementById('startTestButton');
+            const questionContainer = document.getElementById('questionContainer');
+            const resultContainer = document.getElementById('resultContainer');
+
+            startTestButton.addEventListener('click', () => {
+                startText.style.display = "none";
+                startTestButton.style.display = "none";
+                questionContainer.style.display = "block";
+                displayQuestion();
+            });
+
+            function displayQuestion() {
+                const current = questions[currentQuestion];
+                document.getElementById('question').innerHTML = current.question;
+                document.getElementById('answers').innerHTML = current.answers.map((option, index) => `
+                <input type="radio" class="answer" name="answer" value="${option}"> ${option}<br>
+            `).join('');
+            }
+
+            document.getElementById('nextButton').addEventListener('click', () => {
+                const selectedAnswer = document.querySelector('input[name="answer"]:checked');
+                if (selectedAnswer) {
+                    userAnswers.push(selectedAnswer.value);
+                    currentQuestion++;
+                    if (currentQuestion < questions.length) {
+                        displayQuestion();
+                    } else {
+                        showResult();
+                    }
+                } else {
+                    alert('Пожалуйста, выберите ответ.');
+                }
+            });
+
+            function showResult() {
+                let score = calculateScore();
+                questionContainer.style.display = "none";
+                resultContainer.style.display = "block";
+                resultContainer.innerHTML = `<h3>Поздравляем! Ваш результат: ${score}%</h3>
+                     <button id="returnHomeButton" class="btn btn-secondary">Вернуться на главную</button>`;
+                $("#returnHomeButton").click(function(){
+                    $.ajax({
+                        url: '/pollresult',
+                        type: 'POST',
+                        data: jsonResults(),
+                        contentType: "application/json",
+                        dataType: "json",
+                        success: function(data) {
+                            console.log(data);
+                            location.href = '/'
+                        },
+                        error: function(req, status, error) {
+                            alert("R:" + req + "S:" + status + "E:" + error);
+                        }
+                    });
+                });
+
+            }
+
+            function calculateScore() {
+                const totalQuestions = questions.length;
+                const correctAnswers = userAnswers.filter((answer, index) => answer === questions[index].answer).length;
+                var total = (correctAnswers / totalQuestions) * 100;
+                return total
+            }
+            function jsonResults() {
+                var jsonData = {};
+                userAnswers.forEach((answer, index) => {
+                    jsonData[index + 1] = answer;
+                });
+                return JSON.stringify(jsonData);
+            }
+
+
+
+                    },
+            error: function(req, status, error){
+                alert("R:"+req+"S:"+status+"E:"+error);
+            }
+        });
+
+</script>
+{% endblock %}

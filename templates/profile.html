@@ -1,0 +1,12 @@
+    {% extends "base.html" %}
+    {% block content %}
+    <main>
+        <h3>Данные о профиле:</h3>
+        <ul>
+            <li>Логин: {{ current_user.username }}</li>
+            <li>Почта: {{ current_user.email }}</li>
+            <li>Дата создания: {{ current_user.created_on}}</li>
+            <li>Дата обновления: {{ current_user.updated_on}}</li>
+        </ul>
+    </main>
+    {% endblock %}

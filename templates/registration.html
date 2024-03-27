@@ -1,0 +1,129 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1 id="regHead">Регистрация</h1>
+    <form id="form1" name="form1" action="#" method="POST">
+
+                <div class="modal-body">
+                    <div class="mb-2">
+                      <label for="name" class="form-label">Имя</label>
+                      <input type="text" class="form-control" id="name" name="username" required>
+                    </div>
+                    <div class="mb-3">
+                      <label for="email" class="form-label">Электронная почта</label>
+                      <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name="email" oninput="checkEmail()">
+                      <div id="regEmailHelp" class="form-text"></div>
+                    </div>
+                    <div class="mb-2">
+                      <label for="password" class="form-label">Пароль</label>
+                      <input type="password" class="form-control" id="password" name="password" required>
+                        <p id="error-message" style="color: red; display: none;">Password must be at least 8 characters long</p>
+                      <div id="emailHelp" class="form-text">Пароль должен содержать от 8 до 20 символов, содержать символы верхнего регистра и цифры. Использование специальных символов и пробела не допускается</div>
+                    </div>
+                    <div class="mb-2">
+                      <label for="regInputPassword2" class="form-label">Повторите пароль</label>
+                      <input type="password" class="form-control" id="regInputPassword2" name="confirmpswd" required>
+                    </div>
+					<div>
+						<input type="checkbox" name="privacy" required>
+                        <a data-bs-toggle="modal" data-bs-target="#agreementModal" href="/check"> Я принимаю условия Пользовательского соглашения</a>
+					</div>
+
+                    <div class="modal fade" id="agreementModal" tabindex="-1" aria-labelledby="agrModal" aria-hidden="true">
+                            <div class="modal-dialog">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h1>Пользовательское соглашение</h1>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+                                </div>
+                                  <div class="modal-body">
+
+                                    <p>Добро пожаловать на наш сайт! При использовании данного сайта, вы соглашаетесь с условиями, описанными в настоящем пользовательском соглашении. Пожалуйста, внимательно ознакомьтесь с ним перед использованием сайта.</p>
+                                    <ol>
+                                        <li>
+                                            <h2>Владение сайтом</h2>
+                                            <p>Настоящий сайт принадлежит и управляется FoodAdvisor. Все права на содержимое сайта, включая тексты, изображения, логотипы, графику, аудио и видео материалы, являются собственностью FoodAdvisor или ее лицензиаров и охраняются законодательством об авторских правах.</p>
+                                        </li>
+                                        <li>
+                                            <h2>Условия использования</h2>
+                                            <ol type="a">
+                                                <li>Пользователь обязуется использовать данный сайт только в законных целях. Запрещается загружать или распространять содержимое, нарушающее авторские или интеллектуальные права третьих лиц, а также содержащее неприемлемый или оскорбительный материал.</li>
+                                                <li>Пользователь несет полную ответственность за любую информацию, предоставленную им на сайте. FoodAdvisor не несет ответственности за любые убытки или повреждения, возникшие в результате использования такой информации.</li>
+                                                <li>FoodAdvisor оставляет за собой право в любое время изменить или удалить любую информацию на сайте без предварительного уведомления пользователя.</li>
+                                                <li>FoodAdvisor не гарантирует точность или достоверность информации на сайте, а также не несет ответственности за любые утраты, возникшие в результате использования такой информации.</li>
+                                            </ol>
+                                        </li>
+                                        <li>
+                                            <h2>Защита персональных данных</h2>
+                                            <ol type="a">
+                                                <li>При использовании данного сайта, пользователь соглашается с политикой конфиденциальности, описанной на сайте [ссылка на политику конфиденциальности].</li>
+                                                <li>FoodAdvisor обязуется защищать персональную информацию пользователей и использовать ее только в соответствии с политикой конфиденциальности.</li>
+                                            </ol>
+                                        </li>
+                                        <li>
+                                            <h2>Внешние ссылки</h2>
+                                            <p>Сайт может содержать ссылки на внешние ресурсы, не контролируемые FoodAdvisor. Мы не несем ответственности за содержимое и политику конфиденциальности таких ресурсов.</p>
+                                        </li>
+                                        <li>
+                                            <h2>Изменения в пользовательском соглашении</h2>
+                                            <p>FoodAdvisor оставляет за собой право в любое время изменять настоящее пользовательское соглашение без предварительного уведомления. Любые изменения вступают в силу с момента их публикации на сайте.</p>
+                                        </li>
+                                        <li>
+                                            <h2>Заключительные положения</h2>
+                                            <p>Настоящее пользовательское соглашение регулируется и толкуется в соответствии с законодательством РФ. Любой спор, возникающий из использования данного сайта, подлежит рассмотрению в арбитражном суде Приморского края.</p>
+                                        </li>
+                                    </ol>
+                                    <p>Спасибо за использование нашего сайта! Если у вас возникли вопросы или нужна дополнительная информация, пожалуйста, свяжитесь с нами по адресу yarik04@hotmail.com.</p>
+
+                                  </div>
+                              </div>
+                            </div>
+                          </div>
+
+                </div>
+                <br>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Отмена</button>
+                  <button type="submit" class="btn btn-outline-success" data-bs-toggle="tooltip" data-bs-placement="bottom" name="submit" onclick="checkForm()">
+                      Зарегистрироваться
+                  </button>
+                </div>
+                <br>
+    </form>
+
+
+<script>
+    function checkPassword(input) {
+        if (input.value.length <= 20 && input.value.length >=8) {
+            input.classList.add('invalid-input');
+        } else {
+            input.classList.remove('invalid-input');
+        }
+    }
+
+    function checkEmail(input) {
+        const email = input.value;
+        const atIndex = email.indexOf('@');
+        const dotIndex = email.lastIndexOf('.');
+
+        if (atIndex < 1 || dotIndex < atIndex + 2 || dotIndex + 2 >= email.length) {
+            input.classList.add('invalid-input');
+        } else {
+            input.classList.remove('invalid-input');
+        }
+    }
+    function checkPasswordLength(password) {
+        return password.length >= 8;
+    }
+
+    function checkForm() {
+        const passwordInput = document.getElementById("password");
+        const errorMessage = document.getElementById("error-message");
+
+        if (!checkPasswordLength(passwordInput.value)) {
+            errorMessage.style.display = "block";
+        } else {
+            errorMessage.style.display = "none";
+        }
+    }
+</script>
+{% endblock %}

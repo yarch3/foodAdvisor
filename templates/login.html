@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1 id="regHead">Авторизация</h1>
+    <form id="form1" name="authorisation" action="#" method="post">
+        <div class="modal-body">
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Электронная почта</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" required>
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Пароль</label>
+              <input type="password" class="form-control" id="exampleInputPassword1" name="password" required>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-danger" data-bs-dismiss="modal">Отмена</button>
+          <button type="submit" class="btn btn-outline-success" id = "enter" >Войти</button>
+        </div>
+        </form>
+
+   <script>
+        document.getElementById("enter").addEventListener("click", function() {
+            var msg = "{{message}}";
+            alert(msg);
+
+        });
+
+    </script>
+
+
+{% endblock %}
